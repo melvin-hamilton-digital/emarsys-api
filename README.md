@@ -1,5 +1,14 @@
 # Emarsys API
 
+## API documentation
+https://dev.emarsys.com/v2/emarsys-developer-hub
+
+## Current features
+* contact management,
+* triggering external events,
+* product and sales feed generation,
+* sales feed upload.
+
 ## Example usage
 
 ```php

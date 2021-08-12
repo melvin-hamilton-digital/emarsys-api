@@ -1,5 +1,6 @@
 {
     "name": "melvin-hamilton-digital/emarsys-api",
+    "license": "MIT",
     "require": {
         "php": ">=7.2",
         "psr/http-client": "^1.0",
