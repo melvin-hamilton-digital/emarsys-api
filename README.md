@@ -6,6 +6,7 @@ https://dev.emarsys.com/v2/emarsys-developer-hub
 ## Current features
 * contact management,
 * triggering external events,
+* fields management,
 * product and sales feed generation,
 * sales feed upload.
 
@@ -24,11 +25,11 @@ $httpClient = new HttpClient(['base_uri' => 'https://api.emarsys.net/api/v2']);
 $emarsysClient = new EmarsysClient($authentication, $httpClient);
 
 # create new contact
-$newContact = new ContactFields();
-$newContact->setEmail('john.doe@example.org');
-$newContact->setFirstName('John');
-$newContact->setLastName('Doe');
-$newContact->setGender(ContactFields::GENDER_MALE);
+$newContact = (new ContactFields())
+    ->setEmail('john.doe@example.org')
+    ->setFirstName('John')
+    ->setLastName('Doe')
+    ->setGender(ContactFields::GENDER_MALE);
 
 $contacts = new Contacts($emarsysClient);
 $contacts->createContact($newContact);
