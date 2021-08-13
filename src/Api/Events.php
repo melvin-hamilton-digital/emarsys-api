@@ -5,6 +5,7 @@ namespace MHD\Emarsys\Api;
 use GuzzleHttp\Psr7\Request;
 use MHD\Emarsys\Data\ContactFields;
 use Psr\Http\Message\ResponseInterface;
+use stdClass;
 
 /**
  * @link https://dev.emarsys.com/v2/events
@@ -53,7 +54,7 @@ class Events
         $payload = [
             'key_id' => $keyId,
             'external_id' => $externalId,
-            'data' => $data ?: new \stdClass(),
+            'data' => $data ?: new stdClass(),
         ];
         $request = new Request(
             'POST',
