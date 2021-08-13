@@ -21,7 +21,7 @@ use MHD\Emarsys\Api\Events;
 use MHD\Emarsys\Data\ContactFields;
 
 $authentication = new Authentication('username', 'secret');
-$httpClient = new HttpClient(['base_uri' => 'https://api.emarsys.net/api/v2']);
+$httpClient = new HttpClient(['base_uri' => EmarsysClient::BASE_URI]);
 $emarsysClient = new EmarsysClient($authentication, $httpClient);
 
 # create new contact

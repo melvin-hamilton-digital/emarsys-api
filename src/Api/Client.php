@@ -9,6 +9,8 @@ use Psr\Http\Message\ResponseInterface;
 
 class Client
 {
+    public const BASE_URI = 'https://api.emarsys.net/api/v2/';
+
     /**
      * @var Authentication
      */
