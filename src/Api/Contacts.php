@@ -31,7 +31,7 @@ class Contacts
         $data = ['key_id' => $keyId] + $contact->getFields();
         $request = new Request(
             'POST',
-            '/contact',
+            'contact',
             [],
             json_encode($data)
         );
@@ -51,7 +51,7 @@ class Contacts
         $data = ['key_id' => $keyId] + $contact->getFields();
         $request = new Request(
             'PUT',
-            "/contact/?create_if_not_exists={$createIfNotExists}",
+            "contact/?create_if_not_exists={$createIfNotExists}",
             [],
             json_encode($data)
         );
@@ -75,7 +75,7 @@ class Contacts
         ];
         $request = new Request(
             'GET',
-            '/contact/query/?' . http_build_query($query)
+            'contact/query/?' . http_build_query($query)
         );
 
         return $this->client->sendRequest($request);
@@ -96,7 +96,7 @@ class Contacts
         ];
         $request = new Request(
             'POST',
-            '/contact/getdata',
+            'contact/getdata',
             [],
             json_encode($payload)
         );
@@ -114,7 +114,7 @@ class Contacts
         ];
         $request = new Request(
             'POST',
-            '/contact/delete',
+            'contact/delete',
             [],
             json_encode($payload)
         );

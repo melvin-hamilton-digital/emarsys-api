@@ -27,7 +27,7 @@ class Events
      */
     public function getList(): ResponseInterface
     {
-        $request = new Request('GET', '/event/');
+        $request = new Request('GET', 'event/');
 
         return $this->client->sendRequest($request);
     }
@@ -37,7 +37,7 @@ class Events
      */
     public function getEvent(int $eventId): ResponseInterface
     {
-        $request = new Request('GET', "/event/{$eventId}");
+        $request = new Request('GET', "event/{$eventId}");
 
         return $this->client->sendRequest($request);
     }
@@ -58,7 +58,7 @@ class Events
         ];
         $request = new Request(
             'POST',
-            "/event/{$eventId}/trigger",
+            "event/{$eventId}/trigger",
             [],
             json_encode($payload)
         );

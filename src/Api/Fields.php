@@ -31,7 +31,7 @@ class Fields
     {
         $request = new Request(
             'POST',
-            '/field',
+            'field',
             [],
             json_encode(['name' => $name, 'application_type' => $type])
         );
@@ -46,7 +46,17 @@ class Fields
     {
         $request = new Request(
             'GET',
-            "/field/translate/{$language}"
+            "field/translate/{$language}"
+        );
+
+        return $this->client->sendRequest($request);
+    }
+
+    public function getChoices(int $fieldId, string $language = 'en'): ResponseInterface
+    {
+        $request = new Request(
+            'GET',
+            "field/{$fieldId}/choice/translate/{$language}"
         );
 
         return $this->client->sendRequest($request);
@@ -56,7 +66,7 @@ class Fields
     {
         $request = new Request(
             'DELETE',
-            "/field/{$fieldId}"
+            "field/{$fieldId}"
         );
 
         return $this->client->sendRequest($request);
