@@ -32,49 +32,53 @@ class ContactFields
 
     private $fields = [];
 
-    public function setFieldValueById(int $id, $value)
+    public function setFieldValueById(int $id, $value): self
     {
         $this->fields[$id] = $value;
+
+        return $this;
     }
 
-    public function setFirstName(string $firstName)
+    public function setFirstName(string $firstName): self
     {
-        $this->setFieldValueById(self::ID_FIRST_NAME, $firstName);
+        return $this->setFieldValueById(self::ID_FIRST_NAME, $firstName);
     }
 
-    public function setLastName(string $lastName)
+    public function setLastName(string $lastName): self
     {
-        $this->setFieldValueById(self::ID_LAST_NAME, $lastName);
+        return $this->setFieldValueById(self::ID_LAST_NAME, $lastName);
     }
 
-    public function setEmail(string $email)
+    public function setEmail(string $email): self
     {
-        $this->setFieldValueById(self::ID_EMAIL, $email);
+        return $this->setFieldValueById(self::ID_EMAIL, $email);
     }
 
-    public function setDateOfBirth(DateTime $dateOfBirth)
+    public function setDateOfBirth(DateTime $dateOfBirth): self
     {
-        $this->setFieldValueById(self::ID_DATE_OF_BIRTH, $dateOfBirth->format(self::DATE_FORMAT));
+        return $this->setFieldValueById(self::ID_DATE_OF_BIRTH, $dateOfBirth->format(self::DATE_FORMAT));
     }
 
-    public function setGender(int $gender)
+    public function setGender(int $gender): self
     {
-        $this->setFieldValueById(self::ID_GENDER, $gender);
+        return $this->setFieldValueById(self::ID_GENDER, $gender);
     }
 
-    public function setOptIn(bool $optIn)
+    public function setOptIn(bool $optIn): self
     {
-        $this->setFieldValueById(self::ID_OPT_IN, $optIn ? 1 : 2);  // see documentation
+        return $this->setFieldValueById(self::ID_OPT_IN, $optIn ? 1 : 2);  // see documentation
     }
 
-    public function setRegistrationLanguage(int $language)
+    public function setRegistrationLanguage(int $language): self
     {
-        $this->setFieldValueById(self::ID_REGISTRATION_LANGUAGE, $language);
+        return $this->setFieldValueById(self::ID_REGISTRATION_LANGUAGE, $language);
     }
 
-    public function setUid(string $uid)
+    public function setUid(string $uid): self
     {
         $this->fields[self::UID] = $uid;
+
+        return $this;
     }
 
     public function getFields(): array
