@@ -3,9 +3,11 @@
 [![build](https://img.shields.io/github/workflow/status/melvin-hamilton-digital/emarsys-api/PHP%20Composer)](https://github.com/melvin-hamilton-digital/emarsys-api/actions)
 
 ## API documentation
+
 https://dev.emarsys.com/v2/emarsys-developer-hub
 
 ## Current features
+
 * contact management,
 * triggering external events,
 * fields management,
@@ -43,6 +45,16 @@ $events->triggerEvent(1234, 'john.doe@example.org');
 
 ## Product feed
 
+Emarsys product feed can be either Google Product Feed or custom CSV format. While using Google Product Feed might be a
+better idea, since it is supported not only by Emarsys, this library still provides:
+
+* [`MHD\Emarsys\Data\ProductData`](./src/Data/ProductData.php) class, which covers all standard product data fields,
+* [`MHD\Emarsys\ProductFeed\CustomField`](./src/ProductFeed/CustomField.php) annotation class
+  and [`MHD\Emarsys\ProductFeed\ProductDataNameConverter`](./src/ProductFeed/ProductDataNameConverter.php)for custom
+  product data fields,
+
+Those classes are meant to be used with `symfony/serializer` library.
+
 ```php
 use MHD\Emarsys\Data\ProductData;
 use MHD\Emarsys\ProductFeed\ProductDataNameConverter;
@@ -76,6 +88,14 @@ echo $serializer->serialize([$productData], 'csv');
 ```
 
 ## Sales feed
+
+For Emarsys sales feed generation this library provides:
+
+* [`MHD\Emarsys\Data\SalesData`](./src/Data/SalesData.php) class, which covers standard sales data field set,
+* [`MHD\Emarsys\SalesFeed\CustomField`](./src/SalesFeed/CustomField.php) annotation class,
+  and [`MHD\Emarsys\SalesFeed\SalesDataNameConverter`](./src/SalesFeed/SalesDataNameConverter.php) for sales data custom
+  fields,
+* [`MHD\Emarsys\SalesFeed\Uploader`](./src/SalesFeed/Uploader.php) class for automated sales feed upload.
 
 ```php
 use MHD\Emarsys\Data\SalesData;
